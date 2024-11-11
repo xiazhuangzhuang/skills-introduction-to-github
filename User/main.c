@@ -6,27 +6,28 @@
 
 int main(void)
 {
+	//娴嬭瘯浠ｇ爜
 	NVIC_SetPriorityGrouping(5);
 	USART1_Config(115200);
 	USART2_Config(9600);
 	
 	printf("Ready\r\n");
 	
-#if 0 //定点传输模式，发送模块烧录的代码
+#if 0 //瀹氱偣浼犺緭妯″紡锛屽彂閫佹ā鍧楃儳褰曠殑浠ｇ爜
 	if (Lora_CSMode(P2P, 0x11, 0x11, 0x17))
 		printf("P2PMode Send OK\r\n");
-#else //定点传输模式，接收模块烧录的代码
+#else //瀹氱偣浼犺緭妯″紡锛屾帴鏀舵ā鍧楃儳褰曠殑浠ｇ爜
 	if (Lora_CSMode(P2P, 0x22, 0x22, 0x17))
 		printf("P2PMode Recv OK\r\n");
 #endif
 	
 	while(1)
 	{
-		#if 0 //定点传输模式，发送模块烧录的代码
+		#if 0 //瀹氱偣浼犺緭妯″紡锛屽彂閫佹ā鍧楃儳褰曠殑浠ｇ爜
 			Lora_P2PSend(0x22, 0x22, 0x17, "hello world~\r\n"); 
 			Delay_nopnms(3000);
 			printf("111111111111111\r\n");
-		#else //定点传输模式，接收模块烧录的代码
+		#else //瀹氱偣浼犺緭妯″紡锛屾帴鏀舵ā鍧楃儳褰曠殑浠ｇ爜
 			if (USART2_GetData.flag)
 			{
 				printf("2222222222222\r\n");
